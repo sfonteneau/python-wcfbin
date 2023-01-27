@@ -137,8 +137,8 @@ class XMLParser(HTMLParser):
                 return Bytes16TextRecord(data)
             elif val < 2**32:
                 return Bytes32TextRecord(data)
-        elif float_reg.match(data):
-            return DoubleTextRecord(float(data))
+        #elif float_reg.match(data):
+        #    return DoubleTextRecord(float(data))
         elif data in inverted_dict:
             return DictionaryTextRecord(inverted_dict[data])
         elif datetime_reg.match(data) and False:  # TODO
