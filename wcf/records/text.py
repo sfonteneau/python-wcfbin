@@ -36,22 +36,7 @@ import datetime
 import logging
 import uuid
 
-try:
-    from htmlentitydefs import codepoint2name
-except ImportError:
-    from html.entities import codepoint2name
-
-
-def escapecp(cp):
-    return '&%s;' % codepoint2name[cp] if (cp in codepoint2name) else chr(cp)
-
-
-def escape(text):
-    newtext = ''
-    for c in text:
-        newtext += escapecp(ord(c))
-    return newtext
-
+from xml.sax.saxutils import escape
 
 log = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
