@@ -585,9 +585,7 @@ class Chars8TextRecord(Text):
         >>> str(Chars8TextRecord("a<b>c>>&'\""))
         "a&lt;b&gt;c&gt;&gt;&amp;'&quot;"
         """
-
-        return self.value
-        #return escape(self.value)
+        return escape(self.value)
 
     def to_bytes(self):
         r"""
